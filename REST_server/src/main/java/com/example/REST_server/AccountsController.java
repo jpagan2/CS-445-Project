@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.json.simple.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Predicate;
@@ -52,18 +54,23 @@ public class AccountsController {
 	
 	@PostMapping("/bn/api/accounts")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Accounts addAccount(@RequestBody Accounts newAccount) {
+	public Accounts addAccount(@RequestBody Accounts newAccount, HttpServletResponse response) {
+		response.setHeader("Location", "/bn/api/accounts/" + newAccount.getUid());
 		return accountsService.addAccount(newAccount);
 	}
 	
-/*	
-	@PutMapping()
-	public List<Accounts> putAccounts() {
-	    List<Accounts> list = new ArrayList<>();
-	    return list;
-	}
-*/
 
+	@PutMapping("/bn/api/accounts/{uid3}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public Accounts putAccounts(@RequestBody Accounts updatedAccount,  HttpServletResponse response) {
+	    return accountsService.updateAccounts(updatedAccount);
+	}
+
+	/*
+	public Accounts putAccounts(@PathVariable(value="uid")String uid, @RequestBody Accounts updatedAccount,  HttpServletResponse response) {
+	    return accountsService.updateAccounts(updatedAccount);
+	}
+	*/
 }
 
 	

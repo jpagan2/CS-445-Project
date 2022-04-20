@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AccountsService {
-	private final AtomicLong counter = new AtomicLong();
+	private final AtomicLong counter = new AtomicLong(0);
     DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
     LocalDateTime date_created = LocalDateTime.now();
     String formatted_date = date_created.format(myFormatObj);
@@ -25,7 +25,10 @@ public class AccountsService {
 
 	
 
-	
+	Accounts account0 = new Accounts("<uid" + counter.getAndIncrement() + ">", "Virgil Bistriceanu", address0, "312-567-5146", "http://cs.iit.edu/~virgil/pictures/virgil-head-small-200811.jpg", true, formatted_date);
+	Accounts account1 = new Accounts("<uid" + counter.getAndIncrement() + ">", "Jane Smith", address1, "217-456-7890", "http://example.com/images/jane-smith.jpeg", false, formatted_date);
+	Accounts account2 = new Accounts("<uid" + counter.getAndIncrement() + ">", "CSR #1",  address2, "(847) 842-8048", "http://example.com/images/jane-smith.jpeg", true, formatted_date);
+	Accounts account3;
 	
 	public List<Accounts> getAccounts() {
 		
@@ -36,16 +39,14 @@ public class AccountsService {
 		this.address2.put("street", "101 W Main St.");
 		this.address2.put("zip", "60010");
 
-		
-
-		Accounts account0 = new Accounts("<uid" + counter.getAndIncrement() + ">", "Virgil Bistriceanu", address0, "312-567-5146", "http://cs.iit.edu/~virgil/pictures/virgil-head-small-200811.jpg", true, formatted_date);
-		Accounts account1 = new Accounts("<uid" + counter.getAndIncrement() + ">", "Jane Smith", address1, "217-456-7890", "http://example.com/images/jane-smith.jpeg", false, formatted_date);
-		Accounts account2 = new Accounts("<uid" + counter.getAndIncrement() + ">", "CSR #1",  address2, "(847) 842-8048", "http://example.com/images/jane-smith.jpeg", true, formatted_date);
 
 	    List<Accounts> list = new ArrayList<>();
 	    list.add(account0);
 	    list.add(account1);
 	    list.add(account2);
+	    if(account3 != null) {
+		    list.add(account3);
+	    }
 	    return list;
 	}
 	
@@ -60,10 +61,14 @@ public class AccountsService {
 	}
 
 	public Accounts addAccount(Accounts newAccount) {
-		Accounts account3 = new Accounts("<uid" + counter.getAndIncrement() + ">", newAccount.getName(),  newAccount.getAddress(), newAccount.getPhone(), newAccount.getPicture(), newAccount.getIs_active(), newAccount.getDate_created());
-		
+		account3 = new Accounts("<uid" + counter.get() + ">", newAccount.getName(),  newAccount.getAddress(), newAccount.getPhone(), newAccount.getPicture(), newAccount.getIs_active(), formatted_date);
 		return account3;
 	}
 
+
+	public Accounts updateAccounts(Accounts updatedAccount) {
+		account3 = new Accounts(account3.getUid(), updatedAccount.getName(),  updatedAccount.getAddress(), updatedAccount.getPhone(), updatedAccount.getPicture(), updatedAccount.getIs_active(), formatted_date);
+		return null;
+	}
 
 }
