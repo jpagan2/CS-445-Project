@@ -21,7 +21,7 @@ public class AsksController {
     String[] zip_codes = {"60607", "60608"};
 
 	Asks asks0 = new Asks("<uid" + counter.getAndIncrement() + ">", "<aid" + acounter.getAndIncrement() + ">", "gift",  "I need a twin bed frame with a spring box.", "2022-03-14", "", zip_codes, true, "<date5>");
-    	
+	//Asks asks0 = new Asks("<uid" + counter.getAndIncrement() + ">", "<aid" + acounter.getAndIncrement() + ">", "gift",  "I need a twin bed frame with a spring box.", "2022-03-14", "", zip_codes, true, "<date5>");
     
 	@RequestMapping(value = "/bn/api/asks", method = RequestMethod.GET)
 	public List<Asks> getAsks() {

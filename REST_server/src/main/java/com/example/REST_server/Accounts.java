@@ -13,25 +13,16 @@ public class Accounts {
 	private final String uid;
 	private String name;
 	private Map address = new LinkedHashMap(2);
-	private String street;
-	private String zip;
 
 	private String phone;
 	private String picture;
 	private boolean is_active;
 	private String date_created;
 	
-	public Accounts(String uid, String name, String street, String zip, String phone, String picture, boolean is_active, String date_created) {
+	public Accounts(String uid, String name, Map address, String phone, String picture, boolean is_active, String date_created) {
 		this.uid = uid;
 		this.name = name;
-		this.address.put("street", street);
-		this.address.put("zip", zip);
-
-/*
- 		this.street = street;
-		this.zip = zip;
- */
-
+		this.address = address; 
 		this.phone = phone;
 		this.picture = picture;
 		this.is_active = is_active;
@@ -48,14 +39,7 @@ public class Accounts {
 	public Map getAddress() {
 		return address;
 	}
-/*
-	public String getStreet() {
-		return street;
-	}
-	public String getZip() {
-		return zip;
-	}
-*/
+	
 	public String getPhone() {
 		return phone;
 	}
@@ -68,5 +52,6 @@ public class Accounts {
 	public String getDate_created() {
 		return date_created;
 	}
+	
 	
 }
