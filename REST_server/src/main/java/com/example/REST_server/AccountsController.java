@@ -61,9 +61,14 @@ public class AccountsController {
 	
 	
 	@PutMapping("/bn/api/accounts/{uid3}")
-	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public Map putAccounts(@RequestBody Accounts updatedAccount,  HttpServletResponse response) {
-		return accountsService.updateAccounts(updatedAccount);
+		if(accountsService.updateAccounts(updatedAccount) == null) {
+			response.setStatus(204);
+			return null; 
+		}else {
+			response.setStatus(400);
+			return accountsService.updateAccounts(updatedAccount);
+		}
 	}
 
 	/*
