@@ -59,11 +59,11 @@ public class AccountsController {
 		return accountsService.addAccount(newAccount);
 	}
 	
-
+	
 	@PutMapping("/bn/api/accounts/{uid3}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public Accounts putAccounts(@RequestBody Accounts updatedAccount,  HttpServletResponse response) {
-	    return accountsService.updateAccounts(updatedAccount);
+	public Map putAccounts(@RequestBody Accounts updatedAccount,  HttpServletResponse response) {
+		return accountsService.updateAccounts(updatedAccount);
 	}
 
 	/*
