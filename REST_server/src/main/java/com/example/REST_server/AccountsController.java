@@ -53,7 +53,6 @@ public class AccountsController {
 	@PostMapping("/bn/api/accounts")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Accounts addAccount(@RequestBody Accounts newAccount) {
-		Accounts newAccount = 
 		return accountsService.addAccount(newAccount);
 	}
 	
