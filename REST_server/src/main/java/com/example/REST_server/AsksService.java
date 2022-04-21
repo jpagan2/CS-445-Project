@@ -3,6 +3,7 @@ package com.example.REST_server;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,10 @@ public class AsksService {
 	    
 	    Asks a;
 	    Asks a3;
+	    
+	    List<Asks> aList;
+	    
+	    
 	    public List<Asks> getAsks() {
 	        List<Asks> list = new ArrayList<>();
 		    list.add(a);
@@ -57,6 +62,15 @@ public class AsksService {
 			Asks deactivatedAsk = new Asks(deactivateAsks.getUid(), deactivateAsks.getAid(), deactivateAsks.getType(), deactivateAsks.getDescription(), deactivateAsks.getStart_date(), deactivateAsks.getEnd_date(), deactivateAsks.getExtra_zip(), false, deactivateAsks.getDate_created());
 			a3 = deactivatedAsk;
 			return deactivatedAsk;
+		}
+		public List<Asks> deleteAsks(String aid) {
+			for (Iterator<Asks> iterator = aList.iterator(); iterator.hasNext(); ) {
+			    Asks ask = iterator.next();
+			    if (ask.getAid() == aid) {
+			        iterator.remove();
+			    }
+			}
+			return aList;
 		}
 
 }

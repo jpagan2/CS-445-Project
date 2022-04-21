@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,13 +39,21 @@ public class AsksController {
 	@PostMapping("/bn/api/accounts/{uid}/asks")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Asks addAsk(@RequestBody Asks newAsks, @PathVariable("uid") String uid, HttpServletResponse response) {
-		response.setHeader("Location", "/bn/api/accounts/" + uid + "/asks");
+		response.setHeader("Location", "/accounts/%3Cuid3%3E/asks/<aid1>");
 		return asksService.addAsks(newAsks);
 	}
 	
 	@GetMapping("/bn/api/asks")
 	public List<Asks> getAsks() {
 	    return asksService.getAsks();
+	}
+	
+	@PutMapping("/bn/api/accounts/{uid}/asks/{aid}")
+	public Map putAsks(@RequestBody Asks updatedAsk,  HttpServletResponse response) {
+
+		response.setStatus(204);
+		return asksService.updateAsks(updatedAsk);
+		
 	}
 
 	@GetMapping("/bn/api/asks/{aid}")
@@ -68,14 +77,18 @@ public class AsksController {
 		return new ResponseEntity<Asks> (deactivatedAsk,HttpStatus.OK);
 	}
 
-	
-	
-	@PutMapping("/bn/api/accounts/{uid}/asks/{aid}")
-	public Map putAsks(@RequestBody Asks updatedAsk,  HttpServletResponse response) {
-
-		response.setStatus(204);
-		return asksService.updateAsks(updatedAsk);
-		
+	@GetMapping("/bn/api/accounts/{uid}/asks")
+	public List<Asks> getAccounts() {
+	    return asksService.getAsks();
 	}
+
+	
+	
+	@DeleteMapping("/bn/api/accounts/{uid}/asks/{aid}")
+	public List<Asks> deleteAsks(@PathVariable String aid, HttpServletResponse response){
+		response.setStatus(204);
+	    return asksService.deleteAsks(aid);    
+	}
+
 
 }

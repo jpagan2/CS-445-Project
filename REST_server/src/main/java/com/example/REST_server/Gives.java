@@ -27,7 +27,7 @@ public class Gives {
 	public String getUid() {
 		return uid;
 	}
-	public String getAid() {
+	public String getGid() {
 		return gid;
 	}
 	public String getType() {

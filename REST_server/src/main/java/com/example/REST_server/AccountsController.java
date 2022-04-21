@@ -98,7 +98,7 @@ public class AccountsController {
 	@PostMapping("/bn/api/accounts")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Accounts addAccount(@RequestBody Accounts newAccount, HttpServletResponse response) {
-		response.setHeader("Location", "/bn/api/accounts/" + newAccount.getUid());
+		response.setHeader("Location", "/accounts/<uid3>");
 		return accountsService.addAccount(newAccount);
 	}
 	
