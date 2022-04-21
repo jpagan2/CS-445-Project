@@ -17,3 +17,5 @@ Step 3: Clone repository
 Step 3: Navigate to <CS-445-Project> directory
     cd CS-445-Project
 
+Step 4: Launch localhost application
+    mvn spring-boot:run
