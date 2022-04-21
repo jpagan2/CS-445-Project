@@ -28,7 +28,6 @@ public class AccountsService {
 
 	private Map activationFailed = new LinkedHashMap(5);
 	
-	
 	Accounts account0 = new Accounts("<uid" + counter.getAndIncrement() + ">", "Virgil Bistriceanu", address0, "312-567-5146", "http://cs.iit.edu/~virgil/pictures/virgil-head-small-200811.jpg", true, formatted_date);
 	Accounts account1 = new Accounts("<uid" + counter.getAndIncrement() + ">", "Jane Smith", address1, "217-456-7890", "http://example.com/images/jane-smith.jpeg", false, formatted_date);
 	Accounts account2 = new Accounts("<uid" + counter.getAndIncrement() + ">", "CSR #1",  address2, "(847) 842-8048", "http://example.com/images/jane-smith.jpeg", true, formatted_date);
@@ -79,12 +78,29 @@ public class AccountsService {
 			activationFailed.put("detail", "You may not use PUT to activate an account, use GET /accounts/<uid3>/activate instead");
 			activationFailed.put("status", 400);
 			activationFailed.put("instance", "/accounts/<uid3>");
-			//account3 = new Accounts(account3.getUid(), updatedAccount.getName(),  updatedAccount.getAddress(), updatedAccount.getPhone(), updatedAccount.getPicture(), updatedAccount.getIs_active(), formatted_date);
 			return activationFailed;
 		}else {
 			account3 = new Accounts(account3.getUid(), updatedAccount.getName(),  updatedAccount.getAddress(), updatedAccount.getPhone(), updatedAccount.getPicture(), updatedAccount.getIs_active(), formatted_date);
 			return null;
 		}
+	}
+	
+	public Accounts activateAccountsByUid(Accounts activateAccount){
+		Accounts activatedAccount = new Accounts(activateAccount.getUid(), activateAccount.getName(), activateAccount.getAddress(), activateAccount.getPhone(), activateAccount.getPicture(), true, activateAccount.getDate_created());
+		account3 = activatedAccount;
+		return activatedAccount;
+	}
+	
+	public List<Accounts> getMainAccounts() {
+		Accounts accountMain = getAccountsbyUid("<uid2>");
+		Accounts accountMain0 = getAccountsbyUid("<uid3>");
+		List<Accounts> mainAccounts = null;
+
+		mainAccounts.add(accountMain);
+		mainAccounts.add(accountMain0);
+
+		return mainAccounts;
+		
 	}
 	
 

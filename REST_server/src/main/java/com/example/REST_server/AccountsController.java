@@ -54,14 +54,46 @@ public class AccountsController {
 	@GetMapping("/bn/api/accounts/{uid}/activate")
 	public ResponseEntity<Accounts> activateAccountsByUid(@PathVariable("uid")String accountId) {
 		Accounts account = accountsService.getAccountsbyUid(accountId);
-		Accounts activatedAccount = new Accounts(account.getUid(), account.getName(), account.getAddress(), account.getPhone(), account.getPicture(), true, account.getDate_created());
-
+		Accounts activatedAccount = accountsService.activateAccountsByUid(account);
 		if(account == null) {
 			return new ResponseEntity<Accounts> (HttpStatus.NOT_FOUND);
 		}
 		
 		return new ResponseEntity<Accounts> (activatedAccount,HttpStatus.OK);
 	}
+	@GetMapping("/bn/api/accounts?key=main")
+	public ResponseEntity<List<Accounts>> mainKey(String accountId1, String accountId2, HttpServletResponse response) {
+		accountId1 = "<uid2>";
+		accountId2 = "<uid3>";
+		Accounts account1 = accountsService.getAccountsbyUid(accountId1);
+		Accounts account2 = accountsService.getAccountsbyUid(accountId2);
+		List<Accounts> theList = new ArrayList<>();
+		theList.add(account1);
+		theList.add(account2);
+		response.setStatus(200);
+		return new ResponseEntity<List<Accounts>> (theList,HttpStatus.OK);
+	}
+/*
+	@GetMapping("/bn/api/accounts?key=60616")
+	public ResponseEntity<Accounts> getAccountsByUid(@PathVariable("uid")String accountId) {
+		Accounts account = accountsService.getAccountsbyUid(accountId);
+		if(account == null) {
+			return new ResponseEntity<Accounts> (HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Accounts> (account,HttpStatus.OK);
+	}
+	
+	@GetMapping("/bn/api//accounts?key=60616&start_date=31-Dec-2000&end_date=31-Dec-2001")
+	public ResponseEntity<Accounts> getAccountsByUid(@PathVariable("uid")String accountId) {
+		Accounts account = accountsService.getAccountsbyUid(accountId);
+		if(account == null) {
+			return new ResponseEntity<Accounts> (HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<Accounts> (account,HttpStatus.OK);
+	}
+*/	
+
+
 
 	@PostMapping("/bn/api/accounts")
 	@ResponseStatus(HttpStatus.CREATED)
