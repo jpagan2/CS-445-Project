@@ -55,6 +55,21 @@ public class AsksController {
 		}
 		return new ResponseEntity<Asks> (asks,HttpStatus.OK);
 	}
+	
+	
+	@GetMapping("/bn/api/accounts/{uid}/asks/{aid}/deactivate")
+	public ResponseEntity<Asks> deactivateAsks(@PathVariable("aid")String askId) {
+		Asks asks = asksService.getAsksByAid(askId);
+		Asks deactivatedAsk = asksService.deactivateAsks(asks);
+		if(asks == null) {
+			return new ResponseEntity<Asks> (HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<Asks> (deactivatedAsk,HttpStatus.OK);
+	}
+
+	
+	
 	@PutMapping("/bn/api/accounts/{uid}/asks/{aid}")
 	public Map putAsks(@RequestBody Asks updatedAsk,  HttpServletResponse response) {
 

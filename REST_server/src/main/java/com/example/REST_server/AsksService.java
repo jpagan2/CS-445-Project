@@ -52,5 +52,11 @@ public class AsksService {
 				a3 = new Asks(updatedAsk.getUid(), updatedAsk.getAid(),  updatedAsk.getType(), updatedAsk.getDescription(), updatedAsk.getStart_date(), updatedAsk.getEnd_date(), updatedAsk.getExtra_zip(), updatedAsk.getIs_active(), updatedAsk.getDate_created());
 				return null;
 		}
+		
+		public Asks deactivateAsks(Asks deactivateAsks){
+			Asks deactivatedAsk = new Asks(deactivateAsks.getUid(), deactivateAsks.getAid(), deactivateAsks.getType(), deactivateAsks.getDescription(), deactivateAsks.getStart_date(), deactivateAsks.getEnd_date(), deactivateAsks.getExtra_zip(), false, deactivateAsks.getDate_created());
+			a3 = deactivatedAsk;
+			return deactivatedAsk;
+		}
 
 }
