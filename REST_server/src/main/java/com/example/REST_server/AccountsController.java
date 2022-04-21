@@ -51,7 +51,18 @@ public class AccountsController {
 		}
 		return new ResponseEntity<Accounts> (account,HttpStatus.OK);
 	}
-	
+	@GetMapping("/bn/api/accounts/{uid}/activate")
+	public ResponseEntity<Accounts> activateAccountsByUid(@PathVariable("uid")String accountId) {
+		Accounts account = accountsService.getAccountsbyUid(accountId);
+		Accounts activatedAccount = new Accounts(account.getUid(), account.getName(), account.getAddress(), account.getPhone(), account.getPicture(), true, account.getDate_created());
+
+		if(account == null) {
+			return new ResponseEntity<Accounts> (HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<Accounts> (activatedAccount,HttpStatus.OK);
+	}
+
 	@PostMapping("/bn/api/accounts")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Accounts addAccount(@RequestBody Accounts newAccount, HttpServletResponse response) {
@@ -62,6 +73,7 @@ public class AccountsController {
 	
 	@PutMapping("/bn/api/accounts/{uid3}")
 	public Map putAccounts(@RequestBody Accounts updatedAccount,  HttpServletResponse response) {
+
 		if(accountsService.updateAccounts(updatedAccount) == null) {
 			response.setStatus(204);
 			return null; 
@@ -71,11 +83,7 @@ public class AccountsController {
 		}
 	}
 
-	/*
-	public Accounts putAccounts(@PathVariable(value="uid")String uid, @RequestBody Accounts updatedAccount,  HttpServletResponse response) {
-	    return accountsService.updateAccounts(updatedAccount);
-	}
-	*/
+	
 }
 
 	

@@ -79,11 +79,13 @@ public class AccountsService {
 			activationFailed.put("detail", "You may not use PUT to activate an account, use GET /accounts/<uid3>/activate instead");
 			activationFailed.put("status", 400);
 			activationFailed.put("instance", "/accounts/<uid3>");
+			//account3 = new Accounts(account3.getUid(), updatedAccount.getName(),  updatedAccount.getAddress(), updatedAccount.getPhone(), updatedAccount.getPicture(), updatedAccount.getIs_active(), formatted_date);
 			return activationFailed;
 		}else {
 			account3 = new Accounts(account3.getUid(), updatedAccount.getName(),  updatedAccount.getAddress(), updatedAccount.getPhone(), updatedAccount.getPicture(), updatedAccount.getIs_active(), formatted_date);
 			return null;
 		}
 	}
+	
 
 }
