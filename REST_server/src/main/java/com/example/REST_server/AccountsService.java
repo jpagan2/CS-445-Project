@@ -56,7 +56,6 @@ public class AccountsService {
 	}
 	
 	public Accounts getAccountsbyUid(String uid) {
-		
 		Predicate<Accounts> byUid = p -> p.getUid().equals(uid);
 		return filterAccounts(byUid);
 	}
