@@ -22,22 +22,21 @@ public class AsksService {
 	    LocalDateTime date_created = LocalDateTime.now();
 	    String formatted_date = date_created.format(myFormatObj);
 	    String extraZipCodes[] = {"60607", "60608"};
-
-	    Asks a0 = new Asks("<uid" + counter.getAndIncrement() + ">", "<aid" + acounter.getAndIncrement() + ">", "type", "description",  "2022-03-14", "End Date", extraZipCodes, true, formatted_date);
-	    Asks a1 = new Asks("<uid" + counter.getAndIncrement() + ">", "<aid" + acounter.getAndIncrement() + ">", "type", "description",  "2022-03-14", "End Date", extraZipCodes, true, formatted_date);
-	    Asks a2 = new Asks("<uid" + counter.getAndIncrement() + ">", "<aid" + acounter.getAndIncrement() + ">", "type",  "description",  "2022-03-14", "End Date", extraZipCodes, true, formatted_date);
+	    
+	    Asks a;
 	    Asks a3;
 	    public List<Asks> getAsks() {
 	        List<Asks> list = new ArrayList<>();
-	        list.add(a0);
-	        list.add(a1);
-	        list.add(a2);
-	        return list;
+		    list.add(a);
+		    if(a3 != null) {
+			    list.add(a3);
+		    }
+		    return list;
 	    }
 	    
 	    public Asks addAsks(Asks newAsk) {
-			Asks ask = new Asks("<uid" + counter.get() + ">", "", newAsk.getType(), newAsk.getDescription(), newAsk.getStart_date(), newAsk.getEnd_date(), newAsk.getExtra_zip(), newAsk.getIs_active(), formatted_date);
-			return ask;
+			a = new Asks(newAsk.getUid(), "<aid1>", newAsk.getType(), newAsk.getDescription(), newAsk.getStart_date(), newAsk.getEnd_date(), newAsk.getExtra_zip(), newAsk.getIs_active(), formatted_date);
+			return a;
 		}
 	    
 	    
