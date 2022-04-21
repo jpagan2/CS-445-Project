@@ -1,24 +1,20 @@
 package com.example.REST_server;
 
 public class Notes {
-	private final long uid;
-	private final long source_id;
+	private String uid;
+	private String source_id;
 	private String[] conversations;
-	private final long with_uid;
+	private String with_uid;
 	private String[] notes;
-	private long nid;
+	private String nid;
 	private String to_type;
-	private long to_user_id;
-	private long to_id;
+	private String to_user_id;
+	private String to_id;
 	private String description;
 	private String date_created;
 	
-	public Notes(long uid, long source_id, String[] conversations, long with_uid, String[] notes, long nid, String to_type, long to_user_id, long to_id, String description, String date_created) {
+	public Notes (String uid, String nid, String to_type, String to_user_id, String to_id, String description, String date_created) {
 		this.uid = uid;
-		this.source_id = source_id;
-		this.conversations = conversations;
-		this.with_uid = with_uid;
-		this.notes = notes;
 		this.nid = nid;
 		this.to_type = to_type;
 		this.to_user_id = to_user_id;
@@ -28,31 +24,31 @@ public class Notes {
 	}
 
 	
-	public long getUid() {
+	public String getUid() {
 		return uid;
 	}
-	public long getSource_id() {
+	public String getSource_id() {
 		return source_id;
 	}
 	public String[] getConversations() {
 		return conversations;
 	}
-	public long getWith_uid() {
+	public String getWith_uid() {
 		return with_uid;
 	}
 	public String[] getNotes() {
 		return notes;
 	}
-	public long getNid() {
+	public String getNid() {
 		return nid;
 	}
 	public String getTo_type() {
 		return to_type;
 	}
-	public long getTo_user_id() {
+	public String getTo_user_id() {
 		return to_user_id;
 	}
-	public long getToid() {
+	public String getToid() {
 		return to_id;
 	}
 	public String getDescription() {

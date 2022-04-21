@@ -28,7 +28,7 @@ public class GivesService {
 	    Gives g;
 	    Gives g3;
 	    
-	    List<Asks> aList;
+	    List<Gives> gList;
 	    
 	    
 	    public List<Gives> getGives() {
@@ -77,7 +77,7 @@ public class GivesService {
 			        iterator.remove();
 			    }
 			}
-			return aList;
+			return gList;
 		}
 */
 }
