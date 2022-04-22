@@ -62,3 +62,10 @@ mvn clean
 mvn clean package
 mvn spring-boot:run
 ```
+
+**Instructions to access Test Coverage**
+While in the CS-445-Project directory:
+```
+cd REST_server/target/site/
+```
+Then open the <index.html> with a browser
