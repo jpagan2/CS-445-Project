@@ -40,6 +40,6 @@ sudo chmod 777 runmaven.sh
 **Instructions to access Test Coverage**
 While in the CS-445-Project directory:
 ```
-cd REST_server/target/site/
+cd REST_server/target/site/jacoco/
 ```
 Then open the <index.html> with a browser
