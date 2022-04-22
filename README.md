@@ -7,30 +7,16 @@
   - The assumption is that this is ran on a fresh installation of Ubuntu 20.04.3
 
 ## Automation Script
-Steps 1-4 can be accomplished automatically by running the run.sh script.
+For the initial set up: execute the run.sh script
 ```
 sudo cmod 777 run.sh
 ./run.sh
 ```
 
-## Set Up
-1. Install openjdk-17-jdk if not already installed.
-```
-sudo apt update -y
-sudo apt install openjdk-17-jdk -y
-java --version
-```
+## Maven Set Up
 
-2. Install Maven
+1. Set up Enviornment Variables for Maven
 ```
-wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz -P /tmp
-sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt
-sudo ln -s /opt/apache-maven-3.8.5 /opt/maven
-```
-
-3. Set up Enviornment Variables for Maven
-```
-sudo apt-get install vim -y
 sudo vim /etc/profile.d/maven.sh
 ```
 
@@ -43,25 +29,13 @@ export MAVEN_HOME=/opt/apache-maven-3.8.5
 export PATH=${M2_HOME}/bin:${PATH}
 ```
 
-Change permissions and load enviornment variables
+2. Run runmaven.sh 
 ```
-sudo chmod +x /etc/profile.d/maven.sh
-source /etc/profile.d/maven.sh
-mvn -version
-```
-
-4. Install Postman
-```
-sudo snap install postman
+sudo chmod 777 runmaven.sh
+./runmaven.sh
 ```
 
-5. Clean -> Package -> Run Maven Project
-```
-cd REST_server
-mvn clean
-mvn clean package
-mvn spring-boot:run
-```
+
 
 **Instructions to access Test Coverage**
 While in the CS-445-Project directory:
