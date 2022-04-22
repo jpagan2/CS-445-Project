@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class AsksTests {
+class GivesTests {
 
 	@Test
-	void testAsks() {
+	void testGives() {
 		System.out.println("Running Test");
 
 	}
@@ -19,7 +19,7 @@ class AsksTests {
 	}
 
 	@Test
-	void testGetAid() {
+	void testGetGid() {
 		System.out.println("Running Test");
 
 	}

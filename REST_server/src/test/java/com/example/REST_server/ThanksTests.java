@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class AsksTests {
+class ThanksTests {
 
 	@Test
-	void testAsks() {
+	void testThanks() {
 		System.out.println("Running Test");
 
 	}
@@ -19,43 +19,19 @@ class AsksTests {
 	}
 
 	@Test
-	void testGetAid() {
+	void testGetTid() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetType() {
+	void testGetThank_to() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
 	void testGetDescription() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetStart_date() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetEnd_date() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetExtra_zip() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetIs_active() {
 		System.out.println("Running Test");
 
 	}

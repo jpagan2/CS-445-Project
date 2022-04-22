@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class AsksTests {
+class NotesTests {
 
 	@Test
-	void testAsks() {
+	void testNotes() {
 		System.out.println("Running Test");
 
 	}
@@ -19,43 +19,55 @@ class AsksTests {
 	}
 
 	@Test
-	void testGetAid() {
+	void testGetSource_id() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetType() {
+	void testGetConversations() {
+		System.out.println("Running Test");
+
+	}
+
+	@Test
+	void testGetWith_uid() {
+		System.out.println("Running Test");
+
+	}
+
+	@Test
+	void testGetNotes() {
+		System.out.println("Running Test");
+
+	}
+
+	@Test
+	void testGetNid() {
+		System.out.println("Running Test");
+
+	}
+
+	@Test
+	void testGetTo_type() {
+		System.out.println("Running Test");
+
+	}
+
+	@Test
+	void testGetTo_user_id() {
+		System.out.println("Running Test");
+
+	}
+
+	@Test
+	void testGetToid() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
 	void testGetDescription() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetStart_date() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetEnd_date() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetExtra_zip() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetIs_active() {
 		System.out.println("Running Test");
 
 	}

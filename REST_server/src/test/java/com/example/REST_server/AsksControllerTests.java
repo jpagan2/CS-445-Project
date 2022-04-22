@@ -4,64 +4,46 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class AsksTests {
+class AsksControllerTests {
 
 	@Test
-	void testAsks() {
+	void testAddAsk() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetUid() {
+	void testGetAsks() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetAid() {
+	void testPutAsks() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetType() {
+	void testGetAsksByAid() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetDescription() {
+	void testDeactivateAsks() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetStart_date() {
+	void testGetAccounts() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetEnd_date() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetExtra_zip() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetIs_active() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetDate_created() {
+	void testDeleteAsks() {
 		System.out.println("Running Test");
 
 	}

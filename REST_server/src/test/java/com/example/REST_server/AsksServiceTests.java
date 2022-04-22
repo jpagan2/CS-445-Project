@@ -2,57 +2,42 @@ package com.example.REST_server;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import org.junit.jupiter.api.Test;
 
-class AccountsTests {
+class AsksServiceTests {
 
 	@Test
-	void testAccounts() {
+	void testGetAsks() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetUid() {
+	void testAddAsks() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetName() {
+	void testGetAsksByAid() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetAddress() {
+	void testUpdateAsks() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetPhone() {
+	void testDeactivateAsks() {
 		System.out.println("Running Test");
 
 	}
 
 	@Test
-	void testGetPicture() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetIs_active() {
-		System.out.println("Running Test");
-
-	}
-
-	@Test
-	void testGetDate_created() {
+	void testDeleteAsks() {
 		System.out.println("Running Test");
 
 	}
